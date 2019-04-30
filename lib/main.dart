@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:a42_project/Item.dart';
+import 'package:a42_project/AddClothesPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -77,19 +78,28 @@ class _MyHomePageState extends State<MyHomePage> {
                          ItemWidget(),
                        ],
                      ),
-                     Hero(
-                       tag: pos,
-                       child: Container(
-                         padding: EdgeInsets.all(12),
-                         child: Text("All Clothes",
-                           style: TextStyle(
-                               fontSize: 24
+                     Row(
+                       mainAxisAlignment: MainAxisAlignment.center,
+                       children: <Widget>[
+                         Container(
+                           padding: EdgeInsets.all(12),
+                           child: Text("All Clothes",
+                             style: TextStyle(
+                                 fontSize: 24
+                             ),
                            ),
                          ),
-                       ),
-                     )
+                         Icon(Icons.keyboard_arrow_down,size: 32)
+                       ],
+                     ),
                    ],
-                 )
+                 ),
+                 floatingActionButton: FloatingActionButton(
+                   onPressed: null,
+                   child: Icon(Icons.shuffle),
+                   foregroundColor: Colors.white,
+                   backgroundColor: Colors.grey,
+                 ),
                ),
 
                Scaffold(
@@ -104,19 +114,30 @@ class _MyHomePageState extends State<MyHomePage> {
                            ItemWidget(),
                          ],
                        ),
-                       Hero(
-                         tag: pos,
-                         child: Container(
-                           padding: EdgeInsets.all(12),
-                           child: Text("All Clothes",
-                             style: TextStyle(
-                                 fontSize: 24
+                       Row(
+                         mainAxisAlignment: MainAxisAlignment.center,
+                         children: <Widget>[
+                           Container(
+                             padding: EdgeInsets.all(12),
+                             child: Text("Suitable Clothes",
+                               style: TextStyle(
+                                   fontSize: 24
+                               ),
                              ),
                            ),
-                         ),
-                       )
+                           Icon(Icons.keyboard_arrow_up,size: 32)
+                         ],
+                       ),
                      ],
-                   )
+                   ),
+                 floatingActionButton: FloatingActionButton(
+                   onPressed: () {
+                     Navigator.push(context, MaterialPageRoute(builder: (context) => AddClothesPage()));
+                   },
+                   child: Icon(Icons.add),
+                   foregroundColor: Colors.white,
+                   backgroundColor: Colors.grey,
+                 ),
                ),
 
              ],
